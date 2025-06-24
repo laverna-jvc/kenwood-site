@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/kenwood-site/static/css/main.4da6ccc2.css",
-    "main.js": "/kenwood-site/static/js/main.52a8f675.js",
+    "main.js": "/kenwood-site/static/js/main.341488c5.js",
     "index.html": "/kenwood-site/index.html",
     "main.4da6ccc2.css.map": "/kenwood-site/static/css/main.4da6ccc2.css.map",
-    "main.52a8f675.js.map": "/kenwood-site/static/js/main.52a8f675.js.map"
+    "main.341488c5.js.map": "/kenwood-site/static/js/main.341488c5.js.map"
   },
   "entrypoints": [
     "static/css/main.4da6ccc2.css",
-    "static/js/main.52a8f675.js"
+    "static/js/main.341488c5.js"
   ]
 }
