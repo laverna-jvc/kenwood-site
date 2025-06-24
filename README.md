@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# ![JVC Logo](public/assets/logo.svg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Kaip keisti turinį
 
-## Available Scripts
+Šiame projekte visa svetainės informacija saugoma JSON failuose. Žemiau rasite žingsnis po žingsnio instrukcijas, kaip redaguoti turinį tiesiogiai per GitHub.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 1. Įsitikinkite, kad esate šakoje **main**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Prieš redaguodami, patikrinkite, kad viršutiniame dešiniajame kampe GitHub yra pasirinkta šaka **main**.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 2. Raskite JSON failus
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. GitHub meniu eikite į aplanką:
+   ```
+   public/data/
+   ```
+2. Čia rasite tris svarbius failus:
+   - `contact.json`
+   - `stores.json`
+   - `marketplaces.json`
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 3. Redaguokite turinį
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Spustelėkite vieną iš failų (pvz. `contact.json`).
+2. Redaktoriaus lange atlikite norimus pakeitimus:
+   - Keiskite tekstus
+   - Atnaujinkite nuorodas
+   - Pakeiskite paveikslėlių kelius
+3. Įsitikinkite, kad:
+   - JSON struktūra nepažeista
+   - Laikomos kabutės, skliaustai ir kableliai
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 4. Įrašykite pakeitimus
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Paspauskite **Commit changes**.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 5. Automatinis publikavimas
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Po commit’o GitHub Actions automatiškai paleidžia diegimą.
+- Per kelias minutes jūsų pakeitimai atsispindės svetainėje:
+  ```
+  https://laverna-jvc.github.io/
+  ```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Pastabos
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Jei JSON failuose yra klaidų, turinys nebus atnaujintas.

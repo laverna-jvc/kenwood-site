@@ -1,0 +1,42 @@
+name: CI/CD — Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Клонируем репозиторий
+      - uses: actions/checkout@v3
+
+      # 2) Ставим Node.js
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      # 3) Говорим npm игнорировать peer-dependency конфликты
+      - name: Configure npm
+        run: npm config set legacy-peer-deps true
+
+      # 4) Устанавливаем зависимости (будет npm ci с legacy-peer-deps)
+      - name: Install dependencies
+        run: npm ci
+
+      # 5) Делаем билд
+      - name: Build
+        run: npm run build
+
+      # 6) Деплоим в ветку gh-pages
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./build
