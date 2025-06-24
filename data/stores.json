@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "Name": "Vilnius Store",
+    "Country": "lithuania",
+    "Address": "Gedimino pr. 8, Vilnius, Lithuania"
+  },
+  {
+    "id": 2,
+    "Name": "Riga Store",
+    "Country": "latvia",
+    "Address": "Brīvības iela 10, Riga, Latvia"
+  },
+  {
+    "id": 3,
+    "Name": "Kaunas Audio Shop",
+    "Country": "lithuania",
+    "Address": "Laisvės al. 20, Kaunas, Lithuania"
+  }
+]
