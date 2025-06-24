@@ -295,10 +295,6 @@ const HeroTitle = styled.h1`
   }
 `;
 
-const HeroTitleHighlighted = styled.h1`
-
-`;
-
 const HeroTitle2 = styled.h1`
   color: #fff;
   font-size: 2.5rem;
@@ -504,13 +500,21 @@ document.title = `KENWOOD | ${t('home.subTitle2')}`;
 
 useEffect(() => {
   const params = new URLSearchParams(window.location.search);
-  const lang = params.get('lang');
-  const supportedLanguages = ['lt', 'en', 'lv'];
+  const urlLang = params.get('lang');
+  const host = window.location.hostname;
 
-  if (lang && supportedLanguages.includes(lang) && lang !== i18n.language) {
-    i18n.changeLanguage(lang);
+  const supportedLanguages = ['lt', 'lv', 'en'];
+
+  if (urlLang && supportedLanguages.includes(urlLang)) {
+    i18n.changeLanguage(urlLang);
+  } else {
+    if (host.includes('kenwood.lv')) {
+      i18n.changeLanguage('lv');
+    } else if (host.includes('kenwood.lt')) {
+      i18n.changeLanguage('lt');
+    }
   }
-}, []);
+}, [i18n]);
 
   return (
     <>
