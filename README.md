@@ -49,7 +49,7 @@ Prieš redaguodami, patikrinkite, kad viršutiniame dešiniajame kampe GitHub yr
 - Po commit’o GitHub Actions automatiškai paleidžia diegimą.
 - Per kelias minutes jūsų pakeitimai atsispindės svetainėje:
   ```
-  https://laverna-jvc.github.io/
+  https://laverna-jvc.github.io/kenwood-site
   ```
 
 ---
