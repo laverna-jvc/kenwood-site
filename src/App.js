@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import './i18n';
 import axios from 'axios';
 
-const logoImage = '/assets/logo.svg'
+const logoImage = process.env.PUBLIC_URL + '/assets/logo.svg';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -533,7 +533,7 @@ useEffect(() => {
         
         <MainContent>
 		<Hero>
-		  <HeroBackground $imageUrl={contactInfo.heroImage || null} />
+		  <HeroBackground $imageUrl={contactInfo.heroImage ? process.env.PUBLIC_URL + '/' + contactInfo.heroImage : null} />
 		  <HeroOverlay />
 		  
 		  <HeroContent>

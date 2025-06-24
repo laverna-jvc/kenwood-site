@@ -5,8 +5,8 @@ import styled from 'styled-components';
 // import latviaIcon from '../assets/Latvia.png'; 
 
 
-const lithuaniaIcon = '/assets/Lithuania.png';
-const latviaIcon = '/assets/Latvia.png'; 
+const lithuaniaIcon = process.env.PUBLIC_URL + '/assets/Lithuania.png';
+const latviaIcon = process.env.PUBLIC_URL + '/assets/Latvia.png';
 
 const StoreCard = styled.div`
   display: flex;
