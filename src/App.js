@@ -489,7 +489,7 @@ const [contactInfo, setContactInfo] = useState({
 
 // Обновляем функцию fetchContactInfo в useEffect
 useEffect(() => {
-  axios.get('/data/contact.json')
+  axios.get(process.env.PUBLIC_URL + '/data/contact.json')
     .then(res => setContactInfo(res.data))
     .catch(err => console.error('Error loading contact.json:', err));
 }, []);

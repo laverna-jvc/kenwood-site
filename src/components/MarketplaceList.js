@@ -96,7 +96,7 @@ const MarketplaceList = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get('/data/marketplaces.json');
+        const response = await axios.get(process.env.PUBLIC_URL + '/data/marketplaces.json');
         console.log('Marketplaces data from JSON:', response.data);
         setMarketplaces(response.data);
       } catch (err) {

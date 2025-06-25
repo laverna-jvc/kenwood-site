@@ -96,7 +96,7 @@ const StoreList = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get('/data/stores.json');
+        const response = await axios.get(process.env.PUBLIC_URL + '/data/stores.json');
         console.log('Stores data from JSON:', response.data);
         setStores(response.data);
       } catch (err) {
