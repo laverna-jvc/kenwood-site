@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+import { Globe } from "@phosphor-icons/react";
 
 const LanguageContainer = styled.div`
   position: relative;
@@ -30,8 +31,9 @@ const LanguageSelector = styled.div`
   }
 `;
 
-const Globe = styled.i`
-  font-size: 1rem;
+const GlobeIcon = styled.div`
+  display: flex;
+  align-items: center;
   color: #0066ff;
 `;
 
@@ -144,7 +146,7 @@ const changeLanguage = (lng) => {
   return (
     <LanguageContainer ref={containerRef}>
       <LanguageSelector onClick={toggleDropdown}>
-        <Globe className="uil uil-globe" />
+        <GlobeIcon><Globe size={16} /></GlobeIcon>
         <CurrentLanguage>{currentLanguage.code}</CurrentLanguage>
         <Arrow 
           className="uil uil-angle-down" 

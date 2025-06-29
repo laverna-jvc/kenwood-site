@@ -1,12 +1,11 @@
 // src/components/StoreItem.js
 import React from 'react';
 import styled from 'styled-components';
-// import lithuaniaIcon from '../assets/Lithuania.png';
-// import latviaIcon from '../assets/Latvia.png'; 
-
+import { useTranslation } from 'react-i18next';
+import { MapPin } from "@phosphor-icons/react";
 
 const lithuaniaIcon = process.env.PUBLIC_URL + '/assets/Lithuania.png';
-const latviaIcon = process.env.PUBLIC_URL + '/assets/Latvia.png';
+const latviaIcon = process.env.PUBLIC_URL + '/assets/Latvia.png'; 
 
 const StoreCard = styled.div`
   display: flex;
@@ -40,7 +39,7 @@ const StoreName = styled.h3`
 const StoreAddress = styled.a`
   font-size: 0.9rem;
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 0.25rem;
   text-decoration: none;
   color: #6c757d;
@@ -51,8 +50,11 @@ const StoreAddress = styled.a`
     text-decoration: underline;
   }
   
-  i {
-    font-size: 0.9rem;
+  svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+	margin-top: 2px;
   }
 `;
 
@@ -64,6 +66,9 @@ const CountryIcon = styled.img`
 `;
 
 const StoreItem = ({ store }) => {
+  const { i18n } = useTranslation();
+  const isEN = i18n.language === 'en';
+  
   if (!store) {
     return null;
   }
@@ -76,17 +81,17 @@ const StoreItem = ({ store }) => {
   const getMapsUrl = () => {
     return `https://maps.google.com/?q=${encodeURIComponent(storeAddress)}`;
   };
-
+  
   // Determine country icon
   const getCountryIcon = (country) => {
-    if (country && country.toLowerCase().includes('lithuania')) {
+    if (country && country.toLowerCase().includes('lt')) {
       return lithuaniaIcon;
-    } else if (country && country.toLowerCase().includes('latvia')) {
+    } else if (country && country.toLowerCase().includes('lv')) {
       return latviaIcon;
     }
     return null;
   };
-
+  
   const countryIcon = getCountryIcon(storeCountry);
 
   return (
@@ -94,7 +99,7 @@ const StoreItem = ({ store }) => {
       <StoreInfo>
         <StoreName>
           {storeName}
-          {countryIcon && (
+          {isEN && countryIcon && (
             <CountryIcon 
               src={countryIcon} 
               alt={storeCountry} 
@@ -108,7 +113,7 @@ const StoreItem = ({ store }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <i className="uil uil-map-marker"></i>
+          <MapPin />
           {storeAddress}
         </StoreAddress>
       </StoreInfo>

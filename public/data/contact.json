@@ -1,8 +1,26 @@
 {
-  "heroImage": "/assets/hero.jpg",
-  "address": "123 Main St, City, Country",
-  "email": "info@kenwood.com",
-  "phone": "+123 456 7890",
-  "facebookUrl": "https://facebook.com/kenwood",
-  "youtubeUrl": "https://youtube.com/kenwood"
+  "lt": {
+    "address": "Taikos pr. 92C, Kaunas, 51180, Lietuva",
+    "email": "info@kenwood.lt",
+    "phone": "+370 616 33335",
+    "heroImage": "/assets/hero.jpg",
+    "instagramUrl": "https://instagram.com/kenwood.lietuva",
+    "youtubeUrl": "https://youtube.com/kenwood.lietuva"
+  },
+  "lv": {
+    "address": "Taikos pr. 92C, Kaunas, 51180, Lietuva",
+    "email": "info@kenwood.lv",
+    "phone": "+371 616 33335",
+    "heroImage": "/assets/hero.jpg",
+    "instagramUrl": "https://instagram.com/kenwood.latvija",
+    "youtubeUrl": "https://youtube.com/kenwood.latvija"
+  },
+  "en": {
+    "address": "Europe",
+    "email": "support@kenwood.eu",
+    "phone": "+49 111 222 333",
+    "heroImage": "/assets/hero.jpg",
+    "instagramUrl": "https://instagram.com/kenwood.europe",
+    "youtubeUrl": "https://youtube.com/kenwood.europe"
+  }
 }

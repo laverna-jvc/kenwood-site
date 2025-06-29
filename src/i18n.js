@@ -19,11 +19,11 @@ const enTranslation = {
   "home": {
     "title": "Laverna company",
 	"subTitle": "in Lithuania and Latvia",
-	"subTitle2": "Official KENWOOD Distributor",
+	"subTitle2": "Official KENWOOD distributor",
     "welcome": "Welcome to the official website of KENWOOD distributor"
   },
   "stores": {
-    "title": "Our Stores",
+    "title": "Retail locations",
     "address": "Address",
     "phone": "Phone",
     "viewOnMap": "View on Map"
@@ -65,7 +65,7 @@ const ltTranslation = {
     "welcome": "Sveiki atvykę į oficialią KENWOOD distributoriaus svetainę"
   },
   "stores": {
-    "title": "Mūsų parduotuvės",
+    "title": "Prekybos vietos",
     "address": "Adresas",
     "phone": "Telefonas",
 	"viewOnMap": "Peržiūrėti žemėlapyje"
@@ -107,7 +107,7 @@ const lvTranslation = {
     "welcome": "Laipni lūdzam KENWOOD izplatītāja oficiālajā vietnē"
   },
   "stores": {
-    "title": "Mūsu veikali",
+    "title": "Tirdzniecības vietas",
     "address": "Adrese",
     "phone": "Tālrunis",
 	"viewOnMap": "Skatīt kartē"

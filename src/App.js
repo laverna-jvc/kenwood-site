@@ -7,8 +7,9 @@ import MarketplaceList from './components/MarketplaceList';
 import { useTranslation } from 'react-i18next';
 import './i18n';
 import axios from 'axios';
+import { MapPin, Phone, Envelope, At } from "@phosphor-icons/react";
 
-const logoImage = process.env.PUBLIC_URL + '/assets/logo.svg';
+const logoImage = process.env.PUBLIC_URL + '/assets/logo.svg'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -70,16 +71,18 @@ const BackgroundPattern = styled.div`
 `;
 
 const HeaderContainer = styled.header`
-  padding: 1.2rem 0rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(8px);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  // padding: 1.2rem 0rem;
+  height: 80px;
   background-color: rgba(255, 255, 255, 0.8);
-  // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid #dbdee4;
 `;
 
@@ -110,7 +113,9 @@ const LogoImage = styled.img`
 const MainContent = styled.main`
   flex: 1;
   padding: 2rem;
+  padding-top: 7.4rem;
   padding-bottom: 1rem;
+  padding-top: calc(2rem + 80px);
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
@@ -335,7 +340,7 @@ const HeroInfoCards = styled.div`
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0;
   margin-top: 2rem;
   border: 1px solid #dbdee4;
@@ -356,10 +361,15 @@ const InfoCard = styled.div`
   background: #fff;
   padding: 1.5rem 2rem;
   display: flex;
-  flex-direction: column;
+  justify-content: start;
+  align-items: center;
   border-right: 1px solid #dbdee4;
+  // border-top: 1px solid #dbdee4;
   transition: all 0.3s ease;
   
+&:nth-child(3), &:nth-child(4) {
+  border-top: 1px solid #dbdee4;
+}
   &:last-child {
     border-right: none;
   }
@@ -370,20 +380,20 @@ const InfoCard = styled.div`
   
   @media (max-width: 768px) {
     padding: 1.5rem;
+	
   }
 
   @media (max-width: 992px) {
     &:nth-child(2n) {
       border-right: none;
+	  
     }
-    &:nth-child(3), &:nth-child(4) {
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
+
   }
   
   @media (max-width: 576px) {
     border-right: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #dbdee4;
     
     &:last-child {
       border-bottom: none;
@@ -395,6 +405,35 @@ const InfoCard = styled.div`
 		padding-bottom: 2rem;
 	}
   }
+`;
+
+const InfoCardRight = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const InfoCardIcon = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-right: 1.5rem;
+  color: #ff4242;
+
+  svg {
+	height: 48px;
+	width: 48px;
+  }
+
+  @media (max-width: 576px) {
+	// padding-right: 1rem;
+	
+    svg {
+	  height: 32px;
+	  width: 32px;
+    }
+
+  }
+
+
 `;
 
 const InfoCardLabel = styled.div`
@@ -483,21 +522,37 @@ const [contactInfo, setContactInfo] = useState({
   email: '-',
   phone: '-',
   heroImage: null,
-  facebookUrl: '#',
+  instagramUrl: '#',
   youtubeUrl: '#'
 });
 
 // Обновляем функцию fetchContactInfo в useEffect
 useEffect(() => {
+  const language = i18n.language || 'lt';
   axios.get(process.env.PUBLIC_URL + '/data/contact.json')
-    .then(res => setContactInfo(res.data))
-    .catch(err => console.error('Error loading contact.json:', err));
-}, []);
+    .then(res => {
+      // если нет данных по текущему языку, fallback на en
+      const data = res.data[language] || res.data['en'];
+      setContactInfo(data);
+    })
+    .catch(err => {
+      console.error('Error loading contact.json:', err);
+    });
+}, [i18n.language]);
 
 useEffect(() => {
 document.title = `KENWOOD | ${t('home.subTitle2')}`;
 }, [i18n.language, t]);
 
+// useEffect(() => {
+  // const params = new URLSearchParams(window.location.search);
+  // const lang = params.get('lang');
+  // const supportedLanguages = ['lt', 'en', 'lv'];
+
+  // if (lang && supportedLanguages.includes(lang) && lang !== i18n.language) {
+    // i18n.changeLanguage(lang);
+  // }
+// }, []);
 useEffect(() => {
   const params = new URLSearchParams(window.location.search);
   const urlLang = params.get('lang');
@@ -515,6 +570,7 @@ useEffect(() => {
     }
   }
 }, [i18n]);
+
 
   return (
     <>
@@ -546,44 +602,56 @@ useEffect(() => {
 
 		  <HeroInfoCards>
 			<InfoCard>
-			  <InfoCardLabel>{t('contact.address')}</InfoCardLabel>
-			  <InfoCardContent>{contactInfo.address}</InfoCardContent>
+				<InfoCardIcon><MapPin weight="thin" /></InfoCardIcon>
+				<InfoCardRight>
+					<InfoCardLabel>{t('contact.address')}</InfoCardLabel>
+					<InfoCardContent>{contactInfo.address}</InfoCardContent>
+				</InfoCardRight>
 			</InfoCard>
 			
 			<InfoCard>
-			  <InfoCardLabel>{t('contact.email')}</InfoCardLabel>
-			  <InfoCardContent>
-				<a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
-			  </InfoCardContent>
+				<InfoCardIcon><Envelope weight="thin" /></InfoCardIcon>
+				<InfoCardRight>
+					<InfoCardLabel>{t('contact.email')}</InfoCardLabel>
+					<InfoCardContent>
+						<a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+					</InfoCardContent>
+				</InfoCardRight>
 			</InfoCard>
 			
 			<InfoCard>
-			  <InfoCardLabel>{t('contact.phone')}</InfoCardLabel>
-			  <InfoCardContent>{contactInfo.phone}</InfoCardContent>
+				<InfoCardIcon><Phone weight="thin" /></InfoCardIcon>
+				<InfoCardRight>
+					<InfoCardLabel>{t('contact.phone')}</InfoCardLabel>
+					<InfoCardContent>{contactInfo.phone}</InfoCardContent>
+				</InfoCardRight>
 			</InfoCard>
 			
 			<InfoCard>
-			  <InfoCardLabel>{t('contact.social')}</InfoCardLabel>
-			  <InfoCardContent>
-				<SocialLinksContainer>
-				  <SocialIconLink 
-					href={contactInfo.facebookUrl} 
-					aria-label="Facebook" 
-					target="_blank" 
-					rel="noopener noreferrer"
-				  >
-					<i className="uil uil-facebook-f"></i>
-				  </SocialIconLink>
-				  <SocialIconLink 
-					href={contactInfo.youtubeUrl} 
-					aria-label="YouTube" 
-					target="_blank" 
-					rel="noopener noreferrer"
-				  >
-					<i className="uil uil-youtube"></i>
-				  </SocialIconLink>
-				</SocialLinksContainer>
-			  </InfoCardContent>
+				<InfoCardIcon><At weight="thin" /></InfoCardIcon>
+				<InfoCardRight>
+					<InfoCardLabel>{t('contact.social')}</InfoCardLabel>
+					<InfoCardContent>
+						<SocialLinksContainer>
+						  <SocialIconLink 
+							href={contactInfo.instagramUrl} 
+							aria-label="Instagram" 
+							target="_blank" 
+							rel="noopener noreferrer"
+						  >
+							<i className="uil uil-instagram"></i>
+						  </SocialIconLink>
+						  <SocialIconLink 
+							href={contactInfo.youtubeUrl} 
+							aria-label="YouTube" 
+							target="_blank" 
+							rel="noopener noreferrer"
+						  >
+							<i className="uil uil-youtube"></i>
+							</SocialIconLink>
+						</SocialLinksContainer>
+					</InfoCardContent>
+				</InfoCardRight>
 			</InfoCard>
 		  </HeroInfoCards>
 		  

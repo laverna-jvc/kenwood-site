@@ -1,20 +1,57 @@
 [
   {
-    "id": 1,
-    "Name": "Vilnius Store",
-    "Country": "lithuania",
-    "Address": "Gedimino pr. 8, Vilnius, Lithuania"
+    "Name": "Kaunas Laverna2",
+    "Country": "lt",
+    "Address": "Taikos pr. 92C, Kaunas, Lithuania"
   },
   {
-    "id": 2,
-    "Name": "Riga Store",
-    "Country": "latvia",
-    "Address": "Brīvības iela 10, Riga, Latvia"
+    "Name": "Riga Aux",
+    "Country": "lv",
+    "Address": "Ludzas iela 9, Riga, Latvia"
   },
   {
-    "id": 3,
-    "Name": "Kaunas Audio Shop",
-    "Country": "lithuania",
-    "Address": "Laisvės al. 20, Kaunas, Lithuania"
+    "Name": "Kaunas Autogarsas",
+    "Country": "lt",
+    "Address": "Armatūrininkų g.1, Kaunas, Lithuania"
+  },
+  {
+    "Name": "Klaipėda Rekauta",
+    "Country": "lt",
+    "Address": "Bijūnų g. 10A, Klaipėda, Lithuania"
+  },
+  {
+    "Name": "Vilnius Spikare",
+    "Country": "lt",
+    "Address": "Ukmergės g. 222, Vilnius, Lithuania"
+  },
+  {
+    "Name": "Kaunas Spikare",
+    "Country": "lt",
+    "Address": "Savanorių pr. 241, Kaunas, Lithuania"
+  },
+  {
+    "Name": "Kėdainiai Enrikė",
+    "Country": "lt",
+    "Address": "J. Basanavičiaus g. 95D, Kėdainiai, Lithuania"
+  },
+  {
+    "Name": "Klaipėda Signalo centras",
+    "Country": "lt",
+    "Address": "Birutės g. 2, Klaipėda, Lithuania"
+  },
+  {
+    "Name": "Panevėžys Sirenitas",
+    "Country": "lt",
+    "Address": "Ukmergės g. 13, Panevėžys, Lithuania"
+  },
+  {
+    "Name": "Kaunas Sirenitas",
+    "Country": "lt",
+    "Address": "Algirdo g. 2, Kaunas, Lithuania"
+  },
+  {
+    "Name": "Utena Sirenitas",
+    "Country": "lt",
+    "Address": "Aušros g. 63, Utena, Lithuania"
   }
-]
+ ]

@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import StoreItem from './StoreItem';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next'; // в начало файла
+
 
 const StoresContainer = styled.div`
   flex: 1; // Занимает все доступное пространство
@@ -36,8 +38,9 @@ const EmptyState = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem 2rem;
+  padding: 1rem 2rem;
   color: #6c757d;
+  flex: 1;
   
   i {
     font-size: 2.5rem;
@@ -47,6 +50,7 @@ const EmptyState = styled.div`
   
   p {
     font-size: 0.95rem;
+	margin: 0;
   }
 `;
 
@@ -87,6 +91,7 @@ const LoadingAnimation = styled.div`
 `;
 
 const StoreList = () => {
+  const { i18n } = useTranslation();
   const [stores, setStores] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -98,7 +103,35 @@ const StoreList = () => {
       try {
         const response = await axios.get(process.env.PUBLIC_URL + '/data/stores.json');
         console.log('Stores data from JSON:', response.data);
-        setStores(response.data);
+
+        const currentLang = i18n.language;
+        let filteredStores = response.data;
+
+        if (currentLang === 'lt') {
+          filteredStores = response.data.filter(store =>
+            store.Country && store.Country.toLowerCase().includes('lt')
+          );
+        } else if (currentLang === 'lv') {
+          filteredStores = response.data.filter(store =>
+            store.Country && store.Country.toLowerCase().includes('lv')
+          );
+        }
+
+        // setStores(filteredStores);
+		// Сортировка: сначала по City, затем по Name
+		filteredStores.sort((a, b) => {
+		  const cityA = (a.City || '').toLowerCase();
+		  const cityB = (b.City || '').toLowerCase();
+		  if (cityA < cityB) return -1;
+		  if (cityA > cityB) return 1;
+
+		  const nameA = (a.Name || '').toLowerCase();
+		  const nameB = (b.Name || '').toLowerCase();
+		  return nameA.localeCompare(nameB);
+		});
+		setStores(filteredStores);
+		
+		
       } catch (err) {
         console.error("Error fetching stores:", err);
         setError(`Failed to load stores: ${err.message}`);
@@ -108,7 +141,7 @@ const StoreList = () => {
     };
 
     fetchStores();
-  }, []);
+  }, [i18n.language]);
 
   if (loading) {
     return (
@@ -137,9 +170,12 @@ const StoreList = () => {
 
   return (
     <StoresContainer>
-      {stores.map((store) => (
-        <StoreItem key={store.id} store={store} />
-      ))}
+		{stores.map((store, index) => (
+		  <StoreItem
+			key={`${store.Name}-${store.Address}-${index}`}
+			store={store}
+		  />
+		))}
     </StoresContainer>
   );
 };
