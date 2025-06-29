@@ -1,32 +1,42 @@
 [
   {
-    "id": 1,
-    "Name": "Amazon",
-    "URL": "https://www.amazon.com"
+    "Name": "LaviShop2",
+    "Country": "lt",
+    "URL": "https://www.LaviShop.lt"
   },
   {
-    "id": 2,
-    "Name": "eBay",
-    "URL": "https://www.ebay.com"
+    "Name": "GerosKainos",
+    "Country": "lt",
+    "URL": "https://www.GerosKainos.lt"
   },
   {
-    "id": 3,
-    "Name": "Walmart",
-    "URL": "https://www.walmart.com/"
+    "Name": "Varle",
+    "Country": "lt",
+    "URL": "https://www.Varle.lt/"
   },
   {
-    "id": 4,
-    "Name": "Walmart2",
-    "URL": "https://www.walmart.com/"
+    "Name": "Autogarsas",
+    "Country": "lt",
+    "URL": "https://www.autogarsas.lt/"
   },
   {
-    "id": 5,
-    "Name": "Walmart3",
-    "URL": "https://www.walmart.com/"
+    "Name": "Autoaudio",
+    "Country": "lt",
+    "URL": "https://www.autoaudio.lt/"
   },
   {
-    "id": 6,
-    "Name": "Walmart4",
-    "URL": "https://www.walmart.com/"
+    "Name": "Rekija",
+    "Country": "lt",
+    "URL": "https://e-rekija.lt/automobiliu-garso-iranga/"
+  },
+  {
+    "Name": "Enrikė",
+    "Country": "lt",
+    "URL": "https://www.enrike.lt/"
+  },
+  {
+    "Name": "AUX",
+    "Country": "lv",
+    "URL": "https://www.aux.lv/"
   }
 ]
