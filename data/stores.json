@@ -1,6 +1,6 @@
 [
   {
-    "Name": "Kaunas Laverna2",
+    "Name": "Kaunas Laverna",
     "Country": "lt",
     "Address": "Taikos pr. 92C, Kaunas, Lithuania"
   },
@@ -8,6 +8,11 @@
     "Name": "Riga Aux",
     "Country": "lv",
     "Address": "Ludzas iela 9, Riga, Latvia"
+  },
+  {
+    "Name": "Daugavpils RCL Elektronika",
+    "Country": "lv",
+    "Address": "Viestura 13/4 , Daugavpils, Latvia"
   },
   {
     "Name": "Kaunas Autogarsas",
