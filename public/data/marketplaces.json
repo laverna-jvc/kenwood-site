@@ -1,6 +1,6 @@
 [
   {
-    "Name": "LaviShop2",
+    "Name": "LaviShop",
     "Country": "lt",
     "URL": "https://www.LaviShop.lt"
   },
@@ -13,6 +13,11 @@
     "Name": "Varle",
     "Country": "lt",
     "URL": "https://www.Varle.lt/"
+  },
+  {
+    "Name": "Sound Service",
+    "Country": "lt",
+    "URL": "https://www.soundservice.lt/"
   },
   {
     "Name": "Autogarsas",
